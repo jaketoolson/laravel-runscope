@@ -34,7 +34,7 @@ class RunscopeServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->share(function ($app, $parameters) {
+        $this->app['runscope'] = $this->app->share(function ($app, $parameters) {
             $config = $app->config->get('runscope::config', false) ? : $app->config->get('runscope');
 
             return new \Runscope\Runscope(
